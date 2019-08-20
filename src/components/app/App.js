@@ -1,11 +1,18 @@
 import React from 'react';
-// import Main from './views/Main';
 import './App.scss';
+import Header from '../layout/header/Header';
+import Sidebar from '../layout/sidebar/Sidebar';
 import Container from '../container/Container';
 
 const App = () => (
   <div className="app">
-    <Container />
+    <Header />
+    <div className="container-fluid">
+      <div className="row">
+        <Sidebar />
+        <Container />
+      </div>
+    </div>
   </div>
 );
 

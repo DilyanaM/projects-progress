@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col } from 'reactstrap';
 import getProjects from '../../services/projects';
 
 export default class Container extends React.Component {
@@ -30,10 +31,10 @@ export default class Container extends React.Component {
   render() {
     const { projects } = this.state;
     return (
-      <div>
+      <Col xs={{ size: 9, offset: 3 }}>
         {projects
           .map((project) => <div key={`${project.id}`}>{project.id}</div>)}
-      </div>
+      </Col>
     );
   }
 }
