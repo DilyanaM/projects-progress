@@ -2,6 +2,14 @@ import React from 'react';
 import getProjects from '../../services/projects';
 
 export default class Container extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      projects: [],
+    };
+  }
+
   componentDidMount() {
     this.getAllProjects();
   }
@@ -9,6 +17,9 @@ export default class Container extends React.Component {
   getAllProjects = async () => {
     try {
       const data = await getProjects();
+      this.setState({
+        projects: data.projects,
+      });
       return data;
     } catch (error) {
       // console.log('error', error);
@@ -17,8 +28,12 @@ export default class Container extends React.Component {
   }
 
   render() {
+    const { projects } = this.state;
     return (
-      <div />
+      <div>
+        {projects
+          .map((project) => <div key={`${project.id}`}>{project.id}</div>)}
+      </div>
     );
   }
 }
