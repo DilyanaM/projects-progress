@@ -19,9 +19,13 @@ Dependencies for this project were installed via `yarn` package manager. All fut
 
 ## Run the project
 
-```npm start```
+```
+npm start
+```
 #### or
-```yarn start```
+```
+yarn start
+```
 
 Runs the app in development mode.<br>
 Opens the project at [http://localhost:8080](http://localhost:8080).
