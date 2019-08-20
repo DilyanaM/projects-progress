@@ -32,7 +32,13 @@ Opens the project at [http://localhost:8080](http://localhost:8080).
 
 ## Build the project
 
-### `npm run build` or `yarn build`
+```
+npm run build
+```
+#### or
+```
+yarn build
+```
 
 Builds the app for production to the `dist` folder.<br>
 
