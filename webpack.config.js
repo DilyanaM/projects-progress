@@ -15,6 +15,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+        resolve: {
+          extensions: ['.js', '.jsx'],
+        },
       },
       {
         test: /\.html$/,
