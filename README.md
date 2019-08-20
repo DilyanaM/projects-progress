@@ -11,13 +11,17 @@ git clone https://github.com/DilyanaM/projects-progress.git && cd projects-progr
 
 ## Install dependencies
 
-### `yarn`
+```
+yarn
+```
 
 Dependencies for this project were installed via `yarn` package manager. All future dependencies must be installed with `yarn`.
 
 ## Run the project
 
-### `npm start` or `yarn start`
+```npm start```
+#### or
+```yarn start```
 
 Runs the app in development mode.<br>
 Opens the project at [http://localhost:8080](http://localhost:8080).
