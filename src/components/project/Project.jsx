@@ -6,19 +6,33 @@ import {
 import formatDate from '../../utils/formatDate';
 
 export default class Project extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isOpen: false,
+    };
+  }
 
   toggleProject = (id) => {
-    if (document.getElementById(id).classList.contains('d-none')) {
-      document.getElementById(id).classList.remove('d-none');
-      document.getElementById(id).classList.add('d-block');
+    if (document.getElementById(id).classList.contains('project-hidden')) {
+      this.setState({
+        isOpen: true,
+      });
+      document.getElementById(id).classList.remove('project-hidden');
+      document.getElementById(id).classList.add('project-visible');
     } else {
-      document.getElementById(id).classList.remove('d-block');
-      document.getElementById(id).classList.add('d-none');
+      this.setState({
+        isOpen: false,
+      });
+      document.getElementById(id).classList.remove('project-visible');
+      document.getElementById(id).classList.add('project-hidden');
     }
   }
 
   render() {
     const { project } = this.props;
+    const { isOpen } = this.state;
 
     return (
       <div>
@@ -28,17 +42,19 @@ export default class Project extends React.Component {
             <CardText>{project.description}</CardText>
             <div
               id={`${project.id}`}
-              className="d-none"
+              className="project project-hidden"
             >
-              <p>{project.location_city}</p>
-              <p>{formatDate(project.publish_date)}</p>
-              <p>{project.contact_name}</p>
-              <p>{project.title}</p>
+              <p>{`Location: ${project.location_city}`}</p>
+              <p>{`Publish date: ${formatDate(project.publish_date)}`}</p>
+              <p>{`Contact: ${project.contact_name}`}</p>
+              <p>{`Title: ${project.title}`}</p>
+              <p>{`Comments: ${project.comments}`}</p>
             </div>
             <Button
+              className="toggle-button"
               onClick={() => this.toggleProject(project.id)}
             >
-              {project.id}
+              {isOpen ? 'Show less' : 'Show more'}
             </Button>
           </CardBody>
         </Card>
@@ -56,5 +72,9 @@ Project.propTypes = {
     publish_date: PropTypes.string.isRequired,
     contact_name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    comments: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
   }).isRequired,
 };
