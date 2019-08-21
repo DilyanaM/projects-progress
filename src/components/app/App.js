@@ -1,18 +1,22 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Container, Row } from 'reactstrap';
 import './App.scss';
 import Header from '../layout/header/Header';
-import Sidebar from '../layout/sidebar/Sidebar';
-import Container from '../container/Container';
+import Main from '../../views/main/Main';
+import Projects from '../../views/projects/Projects';
 
 const App = () => (
   <div className="app">
     <Header />
-    <div className="container-fluid">
-      <div className="row">
-        <Sidebar />
-        <Container />
-      </div>
-    </div>
+    <Container fluid>
+      <Row>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/projects" component={Projects} />
+        </Switch>
+      </Row>
+    </Container>
   </div>
 );
 

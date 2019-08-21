@@ -1,50 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Col } from 'reactstrap';
 import Loader from '../common/loader/Loader';
 import Error from '../common/error/Error';
-import getProjects from '../../services/projects';
 import Project from '../project/Project';
 
-export default class Container extends React.Component {
+export default class Projects extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      projects: [],
       currentPage: 1,
       projectsPerPage: 10,
-      isLoading: false,
-      hasError: false,
     };
   }
 
-  componentDidMount() {
-    this.getAllProjects();
-  }
-
-  getAllProjects = async () => {
-    this.setState({
-      isLoading: true,
-    });
-    try {
-      const data = await getProjects();
-      this.setState({
-        projects: data.projects,
-      });
-      return data;
-    } catch (e) {
-      this.setState({
-        hasError: true,
-      });
-    } finally {
-      this.setState({
-        isLoading: false,
-      });
-    }
-  }
-
   hasReachedBottom = (event, currentProjects) => {
-    if (currentProjects.length === this.state.projects.length) return;
+    if (currentProjects.length === this.props.projects.length) return;
     const element = event.target;
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       this.setState({
@@ -54,9 +26,8 @@ export default class Container extends React.Component {
   }
 
   render() {
-    const {
-      projects, currentPage, projectsPerPage, isLoading, hasError,
-    } = this.state;
+    const { projects, isLoading, hasError } = this.props;
+    const { currentPage, projectsPerPage } = this.state;
     const firstIndex = 0;
     const lastIndex = projectsPerPage * currentPage;
     const currentProjects = projects.slice(firstIndex, lastIndex);
@@ -93,3 +64,9 @@ export default class Container extends React.Component {
     );
   }
 }
+
+Projects.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  hasError: PropTypes.bool.isRequired,
+};
