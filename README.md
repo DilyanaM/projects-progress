@@ -48,8 +48,10 @@ More available scripts can be found in the `package.json` file in `root` directo
 
 ## Resources
 
-- [API](https://gist.githubusercontent.com/elena-gancheva/e2af742be620fefa0b0d81e36f7cd66c/raw/1407c899e0a1baca8cd9564f6d9668fd7e8909a6/data.json)
+### API:
+- [data.json](https://gist.githubusercontent.com/elena-gancheva/e2af742be620fefa0b0d81e36f7cd66c/raw/1407c899e0a1baca8cd9564f6d9668fd7e8909a6/data.json)
 
+### Tools:
 - [ReactJS](https://reactjs.org/)
 - [Webpack](https://webpack.js.org/)
 - [Axios](https://github.com/axios/axios)
