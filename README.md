@@ -53,6 +53,7 @@ More available scripts can be found in the `package.json` file in `root` directo
 
 ### Tools:
 - [ReactJS](https://reactjs.org/)
+- [React Router](https://github.com/ReactTraining/react-router)
 - [Webpack](https://webpack.js.org/)
 - [Axios](https://github.com/axios/axios)
 - [Reactstrap](https://reactstrap.github.io/)
