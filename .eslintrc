@@ -8,6 +8,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/destructuring-assignment": 0,
+    "react/no-access-state-in-setstate": 0,
     "max-len": [2, { "code": 80 }]
   }
 }
