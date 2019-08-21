@@ -7,6 +7,8 @@ $dirty-white: #ebeced;
 // components styles
 @import './components/layout/header/Header.scss';
 @import './components/layout/sidebar/Sidebar.scss';
+@import './components/common/loader/Loader.scss';
+@import './components/common/error/Error.scss';
 @import './components/container/Container.scss';
 
 body {

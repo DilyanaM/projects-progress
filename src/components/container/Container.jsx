@@ -1,9 +1,9 @@
 import React from 'react';
-import {
-  Col, Card, CardBody, CardTitle, CardText, Button,
-} from 'reactstrap';
+import { Col } from 'reactstrap';
+import Loader from '../common/loader/Loader';
+import Error from '../common/error/Error';
 import getProjects from '../../services/projects';
-import formatDate from '../../utils/formatDate';
+import Project from '../project/Project';
 
 export default class Container extends React.Component {
   constructor() {
@@ -13,6 +13,8 @@ export default class Container extends React.Component {
       projects: [],
       currentPage: 1,
       projectsPerPage: 10,
+      isLoading: false,
+      hasError: false,
     };
   }
 
@@ -21,25 +23,23 @@ export default class Container extends React.Component {
   }
 
   getAllProjects = async () => {
+    this.setState({
+      isLoading: true,
+    });
     try {
       const data = await getProjects();
       this.setState({
         projects: data.projects,
       });
       return data;
-    } catch (error) {
-      // console.log('error', error);
-      return error;
-    }
-  }
-
-  toggleProject = (id) => {
-    if (document.getElementById(id).classList.contains('d-none')) {
-      document.getElementById(id).classList.remove('d-none');
-      document.getElementById(id).classList.add('d-block');
-    } else {
-      document.getElementById(id).classList.remove('d-block');
-      document.getElementById(id).classList.add('d-none');
+    } catch (e) {
+      this.setState({
+        hasError: true,
+      });
+    } finally {
+      this.setState({
+        isLoading: false,
+      });
     }
   }
 
@@ -54,43 +54,41 @@ export default class Container extends React.Component {
   }
 
   render() {
-    const { projects, currentPage, projectsPerPage } = this.state;
+    const {
+      projects, currentPage, projectsPerPage, isLoading, hasError,
+    } = this.state;
     const firstIndex = 0;
     const lastIndex = projectsPerPage * currentPage;
     const currentProjects = projects.slice(firstIndex, lastIndex);
 
-    return (
-      <Col xs={{ size: 9, offset: 3 }}>
+    let content;
+    if (!isLoading && !hasError) {
+      content = (
         <div
           className="projects-container"
-          onScroll={(event) => this.hasReachedBottom(event, currentProjects)}
+          onScroll={(event) => (
+            this.hasReachedBottom(event, currentProjects)
+          )}
         >
           {currentProjects
             .map((project) => (
-              <div key={`${project.id}`}>
-                <Card>
-                  <CardBody>
-                    <CardTitle>{project.company_name}</CardTitle>
-                    <CardText>{project.description}</CardText>
-                    <div
-                      id={`${project.id}`}
-                      className="d-none"
-                    >
-                      <p>{project.location_city}</p>
-                      <p>{formatDate(project.publish_date)}</p>
-                      <p>{project.contact_name}</p>
-                      <p>{project.title}</p>
-                    </div>
-                    <Button
-                      onClick={() => this.toggleProject(project.id)}
-                    >
-                      {project.id}
-                    </Button>
-                  </CardBody>
-                </Card>
-              </div>
+              <Project key={`${project.id}`} project={project} />
             ))}
         </div>
+      );
+    }
+
+    if (isLoading) {
+      content = <Loader />;
+    }
+
+    if (hasError) {
+      content = <Error />;
+    }
+
+    return (
+      <Col xs={{ size: 9, offset: 3 }}>
+        {content}
       </Col>
     );
   }
