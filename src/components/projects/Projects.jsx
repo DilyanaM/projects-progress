@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'reactstrap';
+import { Col, Alert } from 'reactstrap';
 import Loader from '../common/loader/Loader';
 import Error from '../common/error/Error';
 import Project from '../project/Project';
@@ -12,11 +12,16 @@ export default class Projects extends React.Component {
     this.state = {
       currentPage: 1,
       projectsPerPage: 10,
+      endReached: false,
     };
   }
 
   hasReachedBottom = (event, currentProjects) => {
-    if (currentProjects.length === this.props.projects.length) return;
+    if (currentProjects.length === this.props.projects.length) {
+      this.setState({
+        endReached: true,
+      });
+    }
     const element = event.target;
     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
       this.setState({
@@ -27,7 +32,7 @@ export default class Projects extends React.Component {
 
   render() {
     const { projects, isLoading, hasError } = this.props;
-    const { currentPage, projectsPerPage } = this.state;
+    const { currentPage, projectsPerPage, endReached } = this.state;
     const firstIndex = 0;
     const lastIndex = projectsPerPage * currentPage;
     const currentProjects = projects.slice(firstIndex, lastIndex);
@@ -41,10 +46,17 @@ export default class Projects extends React.Component {
             this.hasReachedBottom(event, currentProjects)
           )}
         >
-          {currentProjects
-            .map((project) => (
-              <Project key={`${project.id}`} project={project} />
-            ))}
+          <div>
+            {currentProjects
+              .map((project) => (
+                <Project key={`${project.id}`} project={project} />
+              ))}
+            {!!endReached && (
+              <Alert color="success" className="text-center">
+                Тhere are no more projects to load
+              </Alert>
+            )}
+          </div>
         </div>
       );
     }
@@ -54,7 +66,7 @@ export default class Projects extends React.Component {
     }
 
     if (hasError) {
-      content = <Error />;
+      content = <Error message="Oops, something went wrong!" />;
     }
 
     return (
