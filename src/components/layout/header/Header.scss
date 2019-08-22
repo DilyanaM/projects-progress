@@ -1,3 +1,23 @@
 .header-container {
   margin-bottom: 56px;
+
+  .navbar-dark {
+    .navbar-brand {
+      color: $light;
+    }
+  }
+
+  .nav-item {
+    color: $light;
+    transition: color .3s ease-in;
+
+    &:hover {
+      color: $success;
+      text-decoration: none;
+    }
+
+    &__active {
+      font-weight: 500;
+    }
+  }
 }

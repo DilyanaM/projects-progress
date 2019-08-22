@@ -1,12 +1,11 @@
 // fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+@import './styles/fonts.scss';
 
 // variables
-$dirty-white: #ebeced;
-$dark: #343a40;
-$success: #28a745;
+@import './styles/variables.scss';
 
-$container-height: calc(100vh - 56px);
+// mixins
+@import './styles/mixins.scss';
 
 // components styles
 @import './components/app/App.scss';

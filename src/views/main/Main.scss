@@ -1,12 +1,17 @@
 .main {
   &-container {
-    // display: flex;
-    // flex-direction: column;
-    // flex: 1;
+    @include centered;
+
     height: $container-height;
+    flex: 1 1 auto;
+
+    .jumbotron {
+      @include centered;
+    }
   }
 
   &-title {
+    color: $light;
     margin-bottom: 20px;
   }
 }
