@@ -6,11 +6,14 @@ $dirty-white: #ebeced;
 $dark: #343a40;
 $success: #28a745;
 
+$container-height: calc(100vh - 56px);
+
 // components styles
 @import './components/app/App.scss';
 @import './components/layout/header/Header.scss';
 @import './components/layout/sidebar/Sidebar.scss';
 @import './components/common/loader/Loader.scss';
 @import './components/common/error/Error.scss';
+@import './views/main/Main.scss';
 @import './components/projects/Projects.scss';
 @import './components/project/Project.scss';

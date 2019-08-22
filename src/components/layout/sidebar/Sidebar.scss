@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 56px);
+  height: $container-height;
   padding: 5px 15px;
 
   &-nav-item {

@@ -1,5 +1,5 @@
 .projects-container {
-  max-height: calc(100vh - 56px);
+  max-height: $container-height;
   overflow-y: scroll;
   padding: 15px 0;
 }
