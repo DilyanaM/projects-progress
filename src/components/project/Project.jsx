@@ -15,18 +15,19 @@ export default class Project extends React.Component {
   }
 
   toggleProject = (id) => {
-    if (document.getElementById(id).classList.contains('project-hidden')) {
+    const element = document.getElementById(id);
+    if (element.classList.contains('project-detail__hidden')) {
       this.setState({
         isOpen: true,
       });
-      document.getElementById(id).classList.remove('project-hidden');
-      document.getElementById(id).classList.add('project-visible');
+      element.classList.remove('project-detail__hidden');
+      element.classList.add('project-detail__visible');
     } else {
       this.setState({
         isOpen: false,
       });
-      document.getElementById(id).classList.remove('project-visible');
-      document.getElementById(id).classList.add('project-hidden');
+      element.classList.remove('project-detail__visible');
+      element.classList.add('project-detail__hidden');
     }
   }
 
@@ -35,23 +36,38 @@ export default class Project extends React.Component {
     const { isOpen } = this.state;
 
     return (
-      <div>
-        <Card>
+      <div className="project">
+        <Card className="bg-light">
           <CardBody>
-            <CardTitle>{project.company_name}</CardTitle>
-            <CardText>{project.description}</CardText>
+            <CardTitle>
+              <h3 className="display-5">{project.company_name}</h3>
+            </CardTitle>
+            <CardText className="text-muted">{project.description}</CardText>
             <div
               id={`${project.id}`}
-              className="project project-hidden"
+              className="project-detail project-detail__hidden"
             >
-              <p>{`Location: ${project.location_city}`}</p>
-              <p>{`Publish date: ${formatDate(project.publish_date)}`}</p>
-              <p>{`Contact: ${project.contact_name}`}</p>
-              <p>{`Title: ${project.title}`}</p>
-              <p>{`Comments: ${project.comments}`}</p>
+              {/* eslint-disable react/jsx-one-expression-per-line */}
+              <p className="project-detail-item">
+                Location: <span>{project.location_city}</span>
+              </p>
+              <p className="project-detail-item">
+                Publish date: <span>{formatDate(project.publish_date)}</span>
+              </p>
+              <p className="project-detail-item">
+                Contact: <span>{project.contact_name}</span>
+              </p>
+              <p className="project-detail-item">
+                Role: <span>{project.title}</span>
+              </p>
+              <p className="project-detail-item">
+                Comments: <span>{project.comments}</span>
+              </p>
+              {/* eslint-enable react/jsx-one-expression-per-line */}
             </div>
             <Button
               className="toggle-button"
+              color="success"
               onClick={() => this.toggleProject(project.id)}
             >
               {isOpen ? 'Show less' : 'Show more'}

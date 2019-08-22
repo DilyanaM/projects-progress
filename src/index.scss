@@ -1,17 +1,16 @@
 // fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
 
 // variables
 $dirty-white: #ebeced;
+$dark: #343a40;
+$success: #28a745;
 
 // components styles
+@import './components/app/App.scss';
 @import './components/layout/header/Header.scss';
 @import './components/layout/sidebar/Sidebar.scss';
 @import './components/common/loader/Loader.scss';
 @import './components/common/error/Error.scss';
 @import './components/projects/Projects.scss';
 @import './components/project/Project.scss';
-
-body {
-  font-family: 'Montserrat', sans-serif !important;
-}

@@ -1,3 +1,33 @@
 .sidebar {
-  background-color: $dirty-white;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+  padding: 5px 15px;
+
+  &-nav-item {
+    color: $dark;
+    padding: 10px 0;
+
+    &__active {
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: $dark;
+      text-decoration: none;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      padding-top: 5px;
+      border-bottom: 2px solid $success;
+      transition: .5s;
+    }
+
+    &:hover:after {
+      width: 50px;
+    }
+  }
 }
