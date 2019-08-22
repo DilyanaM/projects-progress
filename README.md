@@ -28,7 +28,7 @@ yarn start
 ```
 
 Runs the app in development mode.<br>
-Opens the project at [http://localhost:8080](http://localhost:8080).
+Opens the app at [http://localhost:8080](http://localhost:8080).
 
 ## Build the project
 
