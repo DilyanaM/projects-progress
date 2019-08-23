@@ -1,12 +1,6 @@
 .header-container {
   margin-bottom: 56px;
 
-  .navbar {
-    @media screen and (max-width: 575px) {
-      justify-content: center;
-    }
-  }
-
   .nav-item {
     color: $light;
     transition: color .3s ease-in;
