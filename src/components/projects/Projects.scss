@@ -2,4 +2,13 @@
   max-height: $container-height;
   overflow-y: scroll;
   padding: 15px 0;
+
+  @media screen and (max-width: 767px) {
+    max-height: calc(100vh - 150px);
+    margin-top: 94px;
+  }
+
+  .alert {
+    margin-bottom: 0;
+  }
 }

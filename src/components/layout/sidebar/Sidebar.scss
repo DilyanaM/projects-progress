@@ -4,6 +4,12 @@
   height: $container-height;
   padding: 5px 15px;
 
+  @media screen and (max-width: 767px) {
+    height: auto;
+    z-index: 20;
+    box-shadow: 0px 1px 5px 0px rgba(52,58,64,0.5);
+  }
+
   &-nav-item {
     color: $dark;
     padding: 10px 0;
@@ -28,6 +34,11 @@
 
     &:hover:after {
       width: 50px;
+    }
+
+    @media screen and (max-width: 786px) {
+      font-size: 0.9rem;
+      padding: 7px 0;
     }
   }
 }

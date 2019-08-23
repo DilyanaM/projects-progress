@@ -70,7 +70,7 @@ export default class Projects extends React.Component {
     }
 
     return (
-      <Col xs={{ size: 9, offset: 3 }}>
+      <Col xs={12} md={{ size: 9, offset: 3 }}>
         {content}
       </Col>
     );

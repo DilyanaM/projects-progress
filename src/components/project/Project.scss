@@ -1,8 +1,20 @@
 .project {
   margin-bottom: 15px;
 
-  &:last-child {
-    margin-bottom: 0;
+  .card {
+    &-title {
+      h3 {
+        @media screen and (max-width: 767px) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    &-text {
+      @media screen and (max-width: 767px) {
+        font-size: 0.9rem;
+      }
+    }
   }
 
   &-detail {
@@ -20,12 +32,17 @@
       opacity: 1;
     }
 
+    @media screen and (max-width: 767px) {
+      font-size: 0.9rem;
+    }
+
     &-item {
       font-weight: 500;
       span {
+        font-weight: 400;
         float: right;
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
           float: none;
         }
       }
@@ -36,4 +53,8 @@
 .toggle-button {
   min-width: 120px;
   z-index: 20;
+
+  @media screen and (max-width: 767px) {
+    font-size: 0.9rem;
+  }
 }

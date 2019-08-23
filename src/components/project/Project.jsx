@@ -40,7 +40,7 @@ export default class Project extends React.Component {
         <Card className="bg-light">
           <CardBody>
             <CardTitle>
-              <h3 className="display-5">{project.company_name}</h3>
+              <h3>{project.company_name}</h3>
             </CardTitle>
             <CardText className="text-muted">{project.description}</CardText>
             <div

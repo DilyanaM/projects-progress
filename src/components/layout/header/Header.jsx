@@ -8,14 +8,14 @@ const Header = () => (
       <NavLink
         to="/"
         exact
-        className="nav-item navbar-brand"
+        className="nav-item navbar-brand mr-0"
       >
         Projects Progress
       </NavLink>
       <NavLink
         to="/projects"
         exact
-        className="nav-item ml-auto"
+        className="nav-item ml-auto d-none d-sm-flex"
         activeClassName="nav-item__active"
       >
         Projects
