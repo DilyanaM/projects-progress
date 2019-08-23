@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Row } from 'reactstrap';
 import Sidebar from '../../components/layout/sidebar/Sidebar';
 import Projects from '../../components/projects/Projects';
 import getProjects from '../../services/projects';
