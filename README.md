@@ -41,6 +41,13 @@ yarn build
 ```
 
 Builds the app for production to the `dist` folder.<br>
+You can run the built version easily with [http-server](https://github.com/http-party/http-server) by executing the following command in the `root` folder of the project:
+
+```
+http-server -p 8081 ./dist -o http://localhost:8081/index.html
+```
+
+And then navigate to [http://localhost:8081](http://localhost:8081) in the browser.
 
 ## Other scripts
 
