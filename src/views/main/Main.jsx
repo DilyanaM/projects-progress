@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Jumbotron, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const image = require('../../assets/images/code.jpg');
+import image from '../../assets/images/code.jpg';
 
 export default class Main extends React.Component {
   constructor() {
