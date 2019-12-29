@@ -1,6 +1,4 @@
 # Projects Progress
-
-### Application purpose:
 Application to present Progress' Projects
 
 ## Clone project
