@@ -26,7 +26,7 @@
     "react-dom": "^16.14.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.2.0",
-    "reactstrap": "^8.9.0",
+    "reactstrap": "^9.0.1",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0"
   },
