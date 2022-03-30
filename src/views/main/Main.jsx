@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Jumbotron, Button } from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import image from '../../assets/images/code.jpg';
@@ -36,7 +36,7 @@ export default class Main extends React.Component {
         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover' }}
         className="main-container"
       >
-        <Jumbotron className="bg-dark">
+        <Container className="bg-dark jumbotron">
           <h1 className="display-3 main-title text-center">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Progress' Projects
@@ -49,7 +49,7 @@ export default class Main extends React.Component {
               View more
             </Button>
           </Link>
-        </Jumbotron>
+        </Container>
       </Container>
     );
   }
